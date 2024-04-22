@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+
+{% block poster %}
+{% endblock poster %}
+
+
+{% block main %}
+<main>
+    <section class="product_detail">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    {% include 'store/components/_product_slider.html' %}
+
+
+                </div>
+                <div class="col-md-6">
+                    {% include 'store/components/_product_info.html' %}
+
+
+                    <p class="product_detail-guarantee">30 days return, free shipping</p>
+                    <a href="" class="product_detail-buy_btn">Добавить в корзину</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include 'store/components/_brand_info.html' %}
+
+    {% include 'store/components/_review_form.html' %}
+
+
+    {% include 'store/components/_customer_reviews.html' %}
+
+
+    <div class="recommended_goods">
+        <h2 class="product_detail-main-title text-center">You may also like</h2>
+
+        <!-- PRODUCTS BLOCK START -->
+        <div class="container">
+            <div class="row">
+
+                {% for product in products %}
+                {% include 'store/components/_product_card.html' %}
+                 {% endfor %}
+            </div>
+        </div>
+        <!-- PRODUCTS BLOCK END -->
+
+    </div>
+
+
+    <!-- BLOCK EMAIL FORM START -->
+    {% include 'store/components/_email_form.html' %}
+    <!-- BLOCK EMAIL FORM END -->
+</main>
+
+{% endblock main %}
+
+
+
+
+
+
+
+

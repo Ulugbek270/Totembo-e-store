@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+
+{% block poster %}
+{% endblock poster %}
+
+
+
+{% block main %}
+
+
+<main>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6">
+                <div class="box-element">
+                <a href="{% url 'my_cart' %}" class="btn btn-success rounded">Назвад в корзину</a>
+                <hr>
+                <h3>Заказанные товары</h3>
+                <hr>
+
+                <div class="cart-row">
+
+                        <div style="flex:2"></div>
+                        <div style="flex:2"><strong>Товар</strong></div>
+                        <div style="flex:1"><strong>Цена</strong></div>
+                        <div style="flex:1"><strong>Кол-во</strong></div>
+                        <div style="flex:1"><strong>Итого</strong></div>
+                    </div>
+
+                    {% for item in items %}
+                    {% include 'store/components/_cart_row.html' %}
+                    {% endfor %}
+                </div>
+
+            </div>
+
+            <div class="col-lg-6">
+                <div class="box-element">
+                    <form action="{% url 'payment' %}" method="post">
+                        {% csrf_token %}
+
+                        <div id="user-info">
+                            <hr>
+                            <p>Ваши даные</p>
+                            <hr>
+
+                            <div class="form-field">
+                                {{ customer_form.first_name }}
+                            </div>
+
+                            <div class="form-field">
+                                {{ customer_form.last_name }}
+                            </div>
+
+                        </div>
+
+
+                        <div id="shipping-info">
+                            <hr>
+                            <p>Адрес доставки</p>
+                            <hr>
+
+                            {% for field in shipping_form %}
+                            <div class="form-field">
+                                {{ field }}
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        <button class="btn btn-success rounded" type="submit">Оформить заказ</button>
+
+
+                    </form>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+{% endblock main %}

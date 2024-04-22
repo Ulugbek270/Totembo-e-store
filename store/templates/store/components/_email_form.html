@@ -1,0 +1,28 @@
+
+<div class="email_form">
+    <div class="email_form-block text-center d-flex w-100 h-100 align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="email_form-title">Become part of us!</h3>
+                    <p class="email_form-desc">Join us to get discounts, new product releases and new
+                        arrivals</p>
+
+                    <form class="d-flex" action="{% url 'save_mail' %}" method="post">
+                        {% csrf_token %}
+                        <input name="email" class="email_form-input flex-grow-1" type="text"
+                               placeholder="Your E-mail address...">
+
+                        <button class="email_form-link" type="submit">Sign In</button>
+
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

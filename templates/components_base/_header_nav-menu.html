@@ -1,0 +1,13 @@
+{% load store_tags %}
+{% get_categories as categories %}
+
+<ul class="header_nav-menu">
+    {% for category in categories %}
+    <li class="header_nav-item"><a class="header_nav-link" href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
+    {% endfor %}
+</ul>
+
+
+
+
+

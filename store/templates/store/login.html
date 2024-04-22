@@ -1,0 +1,64 @@
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Вход в аккаунт</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <div class="modal-body">
+
+        <form action="{% url 'login' %}" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          {{ form.as_p }}
+
+          <div class="d-flex justify-content-between">
+          <button class="btn btn-success rounded" type="submit">Войти</button>
+          <a class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Регистрация</a>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Регистрация</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <div class="modal-body">
+
+        <form action="{% url 'register' %}" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          {{ form2.as_p }}
+
+          <div class="d-flex justify-content-between">
+          <button class="btn btn-success rounded" type="submit">Зарегистрироваться</button>
+            <a class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Вернуться в логин</a>
+
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+

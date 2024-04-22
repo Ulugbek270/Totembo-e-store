@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+
+
+
+
+{% block main %}
+
+<main>
+    <!-- BLOCKS GUARANTEES START -->
+    {% include 'store/components/_blocks_img.html' %}
+
+
+    <!-- BLOCKS GUARANTEES START -->
+    {% for category in categories %}
+    <section class="products-section products_section-watches">
+        <!-- SECTION QUARTZ EDITION START -->
+        <h2 class="main_title text-center">{{ category.title }}</h2>
+
+        {% for cat in category.subcategories.all %}
+        <h2 class="main_title text-center">{{ cat.title }}</h2>
+        <div class="container">
+            <div class="row">
+
+                {% for product in cat.products.all %}
+                {% include 'store/components/_product_card.html' %}
+                {% endfor %}
+
+            </div>
+        </div>
+        {% empty %}
+        <h2 class="main_title text-center">Нет товаров</h2>
+        {% endfor %}
+        <!-- SECTION QUARTZ EDITION END -->
+
+    </section>
+    {% endfor %}
+
+
+    <!-- SLIDER BLOCK START -->
+    {% include 'store/components/_owl-carousel.html' %}
+
+    <!-- SLIDER BLOCK END -->
+
+    <!-- BLOCK EMAIL FORM START -->
+    {% include 'store/components/_email_form.html' %}
+
+    <!-- BLOCK EMAIL FORM END -->
+</main>
+
+{% endblock main %}

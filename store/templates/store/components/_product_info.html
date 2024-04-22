@@ -1,0 +1,23 @@
+<div class="product_detail-info">
+    <h2 class="product_detail-title">{{ product.title }}</h2>
+    <p class="product_detail-desc">{{ product.description }}</p>
+    <p class="product_detail-price">${{ product.price }}</p>
+
+    <ul class="product_detail-characteristic">
+        <li class="product_detail-characteristic_item d-flex justify-content-between">
+            <span>Размер (mm)</span>
+            <span>{{ product.size }}</span>
+        </li>
+        <li class="product_detail-characteristic_item d-flex justify-content-between">
+            <span>Цвет/Материал</span>
+            <span>{{ product.color }}</span>
+        </li>
+        <li class="product_detail-characteristic_item d-flex justify-content-between">
+            <span>Тип часов</span>
+            <span>{{ product.category }}</span>
+        </li>
+        <li class="product_detail-characteristic_item d-flex justify-content-between">
+            <span>Details</span>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,14 @@
+
+<div class="product_detail-slider">
+
+    {% for image in product.images.all %}
+    <div class="product_detail-slider_block text-center">
+        <img src="{{ image.image.url }}" alt="" width="70%">
+    </div>
+    {% endfor %}
+
+
+</div>
+
+
+

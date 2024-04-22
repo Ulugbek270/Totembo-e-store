@@ -1,0 +1,37 @@
+{% load store_tags %}
+{% get_sorted as data %}
+
+<div class="products_filter">
+    <div class="container">
+        <div class="row justify-content-around">
+
+            {% for dict in data %}
+            <div class="dropdown pt-2 pt-lx-0">
+                <button class="products_filter-dropdown dropdown-toggle rounded" type="button" id="dropdownColor"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                    {{ dict.title }}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownColor">
+                    {% for sorter in dict.sorters %}
+                    <li><a class="dropdown-item" href="?sort={{ sorter.0 }}">{{ sorter.1 }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+
+
+            <div class="dropdown pt-2 pt-lx-0">
+                <button class="products_filter-dropdown dropdown-toggle rounded" type="button"
+                        id="dropdownWatchType" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{ category.title }}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownWatchType">
+                    {% for subcategory in category.subcategories.all %}
+                    <li><a class="dropdown-item" href="?type={{ subcategory.slug }}">{{ subcategory.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>

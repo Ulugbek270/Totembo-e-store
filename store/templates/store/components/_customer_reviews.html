@@ -1,0 +1,18 @@
+<div class="customer_reviews">
+    <h2 class="product_detail-main-title text-center">CUSTOMER REVIEWS</h2>
+    <div class="customer_reviews-slider">
+        {% for review in reviews %}
+        <div class="customer_reviews-slider_block">
+            <h5 class="customer_reviews-title">{{ review.author.username }}</h5>
+            <div class="d-flex justify-content-between">
+                <small class="customer_reviews-status">Verified client</small>
+                <span class="customer_reviews-date">{{ review.created_at }}</span>
+            </div>
+            <p class="customer_reviews-desc">{{ review.text }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+

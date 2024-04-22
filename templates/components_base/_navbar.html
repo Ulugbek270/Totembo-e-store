@@ -1,0 +1,47 @@
+<nav class="header_nav">
+    <div class="container">
+        <div class="naw_menu">
+            <a href="{% url 'product_list' %}" class="logo_text">TOTEMBO</a>
+
+            {% include 'components_base/_header_nav-menu.html' %}
+
+
+            {% include 'components_base/_header_panel.html' %}
+
+
+            <!-- BURGER MENU START -->
+            <div class="header_lx-panel">
+                <input type="checkbox" class="toggler">
+                <div class="hamburger">
+                    <div></div>
+                </div>
+                <div class="menu">
+                    <div>
+                        <div>
+                            <ul>
+                                <li>
+                                    <a class="header_nav-link" href=""><img src="images/icons/basket_icon.svg"
+                                                                            alt=""></a>
+                                    <a class="header_nav-link" href=""><img src="images/icons/ru_lang_icon.svg"
+                                                                            alt=""></a>
+                                </li>
+                                <li class="header_nav-item"><a class="header_nav-link" href="">Часы</a></li>
+                                <li class="header_nav-item"><a class="header_nav-link" href="">Кольца</a></li>
+                                <li class="header_nav-item"><a class="header_nav-link" href="">Серьги</a></li>
+                                <li class="header_nav-item"><a class="header_nav-link" href="">Браслеты</a></li>
+                                <li class="header_nav-item"><a class="header_nav-link" href="">Клатчи</a></li>
+                                <li class="header_nav-item"><a class="header_nav-link" href="">Цепочки</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- BURGER MENU END -->
+        </div>
+    </div>
+
+
+</nav>
+
+
+

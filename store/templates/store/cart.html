@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+
+{% block poster %}
+{% endblock poster %}
+
+
+
+{% block main %}
+
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="box-element">
+                    <table class="table">
+                        <div class="d-flex justify-content-around align-items-center">
+                            <h5>Количество товара: <strong>{{ order.get_cart_total_quantity }}</strong></h5>
+                            <h5>Сумма заказа: <strong>{{ order.get_cart_total_price }}$</strong></h5>
+                        </div>
+                    </table>
+                </div>
+
+                <div class="box-element">
+                    <div class="cart-row">
+                        <div style="flex:2"></div>
+                        <div style="flex:2"><strong>Товар</strong></div>
+                        <div style="flex:1"><strong>Цена</strong></div>
+                        <div style="flex:1"><strong>Количество</strong></div>
+                        <div style="flex:1"><strong>Итого</strong></div>
+                    </div>
+
+                    {% for item in products %}
+                    {% include 'store/components/_cart_row.html' %}
+                    {% endfor %}
+
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    {% if products %}
+                    <a href="{% url 'clear_cart' %}" class="btn btn-danger rounded">Очистить корзину</a>
+                    <a href="{% url 'checkout' %}" class="btn btn-success rounded">Оформить заказ</a>
+                    {% endif %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+{% endblock main %}

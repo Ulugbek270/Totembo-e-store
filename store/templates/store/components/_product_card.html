@@ -1,0 +1,55 @@
+{% load store_tags %}
+{% if request.user.is_authenticated %}
+{% get_favorite_products request.user as fav_products %}
+{% endif %}
+
+<div class="col-12 col-sm-6 col-md-4 col-lg-3">
+    <div class="product_card text-center">
+        <div class="product_card-basket">
+            {% if product in fav_products and request.user.is_authenticated %}
+            <a href="{% url 'add_favorite' product.slug %}" class="product_card_basket-link basket_icon">
+                <svg width="28" height="24" viewBox="0 0 28 24" fill="#000000"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path
+                            d="M8.375 1C4.57813 1 1.5 4.07813 1.5 7.875C1.5 14.75 9.625 21 14 22.4538C18.375 21 26.5 14.75 26.5 7.875C26.5 4.07813 23.4219 1 19.625 1C17.3 1 15.2438 2.15438 14 3.92125C13.3661 3.01825 12.5239 2.28131 11.5447 1.77281C10.5656 1.2643 9.47831 0.999222 8.375 1Z"
+                            stroke="#0F2859" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round"/>
+                </svg>
+            </a>
+            {% else %}
+            <a href="{% url 'add_favorite' product.slug %}" class="product_card_basket-link basket_icon">
+                <svg width="28" height="24" viewBox="0 0 28 24" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path
+                            d="M8.375 1C4.57813 1 1.5 4.07813 1.5 7.875C1.5 14.75 9.625 21 14 22.4538C18.375 21 26.5 14.75 26.5 7.875C26.5 4.07813 23.4219 1 19.625 1C17.3 1 15.2438 2.15438 14 3.92125C13.3661 3.01825 12.5239 2.28131 11.5447 1.77281C10.5656 1.2643 9.47831 0.999222 8.375 1Z"
+                            stroke="#0F2859" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round"/>
+                </svg>
+            </a>
+            {% endif %}
+        </div>
+        <a class="product_card-detail" href="{{ product.get_absolute_url }}">
+            <div class="w-100">
+                <img class="product_card-img img-fluid" src="{{ product.get_image_product }}" alt="">
+            </div>
+            <div class="product_card-description">
+                <p class="product_card-name">{{ product.title }}</p>
+                <p class="product_card-desc">{{ product.description }}</p>
+                <p class="product_card-price">${{ product.price }}</p>
+            </div>
+        </a>
+
+        {% if product.quantity > 0 %}
+        <a href="{% url 'to_cart' product.pk 'add' %}" class="product_card-btn">Купить</a>
+        {% else %}
+        <p  class="product_card-btn">Нет в наличии</p>
+        {% endif %}
+    </div>
+</div>
+
+
+
+
+
+
+
